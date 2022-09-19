@@ -16,9 +16,9 @@ var hero_full_screen = true;                    //If true, the hero section will
 
 //HERO BACKGROUND SLIDESHOW IMAGES
 var slidehow_images = [
-    "https://via.placeholder.com/1920x1080.png",
-    "https://via.placeholder.com/1920x1080.png",
-    "https://via.placeholder.com/1920x1080.png"
+    "images/mano.png",
+    "images/civil.png",
+    "images/beso.png",    
 ];
 
 //TIMELINE PARALLAX
@@ -26,17 +26,17 @@ var timeline_parallax = true;                   //If false, the timeline items w
 
 
 //CONTACT FORM VARIABLES
-var contact_form_success_msg = "Form successfully submitted! :)";
-var contact_form_error_msg = "Error sending message :(";
-var contact_form_recaptcha_error_msg = "Error verifying reCaptcha!";
+var contact_form_success_msg = "Formulario exitosamente enviado! :)";
+var contact_form_error_msg = "Error en el envío del mensaje :(";
+var contact_form_recaptcha_error_msg = "Error de verificación del reCaptcha!";
 
 
 //COUNTDOWN VARIABLES
-var c_days = "DAYS";                            //Countdown "Days" label
-var c_hours = "HOURS";                          //Countdown "Hours" label
+var c_days = "DIAS";                            //Countdown "Days" label
+var c_hours = "HORAS";                          //Countdown "Hours" label
 var c_minutes = "MIN.";                         //Countdown "Minutes" label
-var c_seconds = "SEC.";                         //Countdown "Seconds" label
-var countdown_end_msg = "Event Started!";       //Message to display when the countdown reaches the end
+var c_seconds = "SEG.";                         //Countdown "Seconds" label
+var countdown_end_msg = "¡Salud!";       //Message to display when the countdown reaches the end
 
 
 //GOOGLE MAP VARIABLES
