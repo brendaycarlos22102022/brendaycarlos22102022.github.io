@@ -12,7 +12,7 @@ or subject, the default values (below) will be used.
 */
 $emailto = 'brendaycarlos22102022@gmail.com'; 	// Insert the email address that will receive the messages
 $fromName = 'Contact';					// Insert a default "From Name" (this field will be displayed in the email header)
-$fromEmail = 'debrendaycarlos22102022@gmail.com';	// Insert a default "From Email" address (this field will be displayed in the email header)
+$fromEmail = 'ejemplo@gmail.com';	// Insert a default "From Email" address (this field will be displayed in the email header)
 $subject = 'Brenda y J.Carlos';		// Insert a default contact form subject
 
 

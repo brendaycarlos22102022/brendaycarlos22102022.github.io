@@ -981,8 +981,8 @@ var Neela;
                                 grecaptcha.reset();
                             }
                         },
-                        error: function () {
-                            alert("Error");
+                        error: function (msg) {
+                            alert(msg);
                             stopSpin();
 
                             $_self.showError();
