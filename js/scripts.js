@@ -842,6 +842,7 @@ var Neela;
             var $_self = this;
 
             $(".submit_form").on("click", function (e) {
+       
 
                 var $submit_btn = $(this);
                 var $form = $submit_btn.closest("form");
@@ -952,9 +953,10 @@ var Neela;
                     $(".fa-spinner", $submit_btn).remove();
                     $submit_btn.removeClass("disabled");
                 };
-
+                
                 if (!error && !$_self.sendingMail) {
                     $_self.sendingMail = true;
+                    
 
                     $submit_btn.append("<i class=\"fas fa-spinner fa-spin after\"></i>");
                     $submit_btn.addClass("disabled");

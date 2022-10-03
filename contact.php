@@ -10,14 +10,14 @@ of them has different emailTo, subject, etc.
 If none of the fields were set as emailTo, fromName, fromEmail
 or subject, the default values (below) will be used.
 */
-$emailto = 'default@yourdomain.com'; 	// Insert the email address that will receive the messages
+$emailto = 'brendaycarlos22102022@gmail.com'; 	// Insert the email address that will receive the messages
 $fromName = 'Contact';					// Insert a default "From Name" (this field will be displayed in the email header)
-$fromEmail = 'default@yourdomain.com';	// Insert a default "From Email" address (this field will be displayed in the email header)
-$subject = 'Neela Contact Form';		// Insert a default contact form subject
+$fromEmail = 'debrendaycarlos22102022@gmail.com';	// Insert a default "From Email" address (this field will be displayed in the email header)
+$subject = 'Brenda y J.Carlos';		// Insert a default contact form subject
 
 
 // Insert your Google reCaptcha V2 secret key
-$secretkey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+$secretkey = "6LfxYlEiAAAAAPJE3DhF_Qv1Yx0w2Uvis8SG1VZk";
 
 
 
