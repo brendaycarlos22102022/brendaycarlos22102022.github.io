@@ -982,6 +982,7 @@ var Neela;
                             }
                         },
                         error: function () {
+                            alert("Error");
                             stopSpin();
 
                             $_self.showError();
