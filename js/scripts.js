@@ -966,6 +966,7 @@ var Neela;
                         url: "contact.php",
                         data: html,
                         success: function (msg) {
+                            console.log(msg);
                             stopSpin();
 
                             if (msg === "ok") {
@@ -982,7 +983,7 @@ var Neela;
                             }
                         },
                         error: function (msg) {
-                            alert(msg);
+                            console.log(msg);
                             stopSpin();
 
                             $_self.showError();

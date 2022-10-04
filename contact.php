@@ -1,5 +1,16 @@
 <?php
 
+$to = "hearagmu@gmail.com";
+$subject = "Asunto del email";
+$message = "Este es mi primer envío de email con PHP";
+ 
+
+if (mail($to, $subject, $message)) {
+    echo 'ok';
+} else {
+    echo 'naranjas';
+}
+
 /*
 The variables below can be overridden by setting the contact 
 form input fields as emailTo, fromName, fromEmail or subject. This can be
@@ -10,6 +21,8 @@ of them has different emailTo, subject, etc.
 If none of the fields were set as emailTo, fromName, fromEmail
 or subject, the default values (below) will be used.
 */
+
+/*
 $emailto = 'brendaycarlos22102022@gmail.com'; 	// Insert the email address that will receive the messages
 $fromName = 'Contact';					// Insert a default "From Name" (this field will be displayed in the email header)
 $fromEmail = 'ejemplo@gmail.com';	// Insert a default "From Email" address (this field will be displayed in the email header)
@@ -101,5 +114,5 @@ if ($len && $recaptcha){
 } else {
 	echo 'error';
 }
-
+*/
 ?>
