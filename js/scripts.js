@@ -854,6 +854,11 @@ var Neela;
                 var showSuccess;
                 var stopSpin;
                 var encodeHtml;
+                var nombre = '';
+                var mensaje = '';
+                var confirmar = '';
+                var cuantosIremos = '';
+                var comida = '';
 
                 e.preventDefault();
 
@@ -878,27 +883,10 @@ var Neela;
                         } else if ($field.hasClass("emailTo") || $field.hasClass("emailto")) {
                             html += "&emailto=" + encodeHtml($field.val());
                         }
-                    } else {
-                        if ($field.attr("type") === "checkbox" && $field.parents("fieldset").length === 1 && $field.parents("fieldset").hasClass("required")) {
-                            return;
-                        }
+                        
 
-                        if ($field.is("fieldset") && $field.hasClass("required") && $("#" + $field.attr("id") + " input:checkbox:checked").length === 0) {
-                            $("input", $field).addClass("is-invalid");
-                            error = true;
-                        } else if ($field.hasClass("required") && $field.attr("type") === "checkbox" && !$("input[id='" + $field.attr("id") + "']").is(":checked")) {
-                            $field.addClass("is-invalid");
-                            error = true;
-                        } else if ($field.hasClass("required") && $field.val() === "" && $field.attr("type") !== "checkbox" && !$field.is("fieldset")) {
-                            $field.addClass("is-invalid");
-                            error = true;
-                        } else if ($field.hasClass("required") && $field.attr("type") === "radio" && !$("input[name='" + $field.attr("name") + "']").is(":checked")) {
-                            $field.addClass("is-invalid");
-                            error = true;
-                        } else if ($field.attr("type") === "email" && $field.val() !== "" && re.test($field.val()) === false) {
-                            $field.addClass("is-invalid");
-                            error = true;
-                        } else if ($field.attr("id") !== "g-recaptcha-response" && $field.attr("id") !== "recaptcha-token") {
+                    } else {
+                       if ($field.attr("id") !== "g-recaptcha-response" && $field.attr("id") !== "recaptcha-token") {
                             $field.removeClass("is-invalid");
                             $("input", $field).removeClass("is-invalid");
 
@@ -907,15 +895,19 @@ var Neela;
                                 html += "&subject_label=" + encodeHtml($field.attr("name"));
                             } else if ($field.hasClass("fromName") || $field.hasClass("fromname")) {
                                 html += "&fromname=" + encodeHtml($field.val());
+                                nombre = encodeHtml($field.val());
                                 html += "&fromname_label=" + encodeHtml($field.attr("name"));
                             } else if ($field.hasClass("fromEmail") || $field.hasClass("fromemail")) {
                                 html += "&fromemail=" + encodeHtml($field.val());
+                                cuantosIremos = encodeHtml($field.val());
                                 html += "&fromemail_label=" + encodeHtml($field.attr("name"));
                             } else {
+                                
                                 if ($field.attr("type") === "radio") {
                                     if ($("input[id='" + $field.attr("id") + "']").is(":checked")) {
                                         html += "&field" + len + "_label=" + encodeHtml($field.attr("name"));
-                                        html += "&field" + len + "_value=" + encodeHtml($.trim($("label[for='" + $field.attr("id") + "']").text()));
+                                        html += "&field" + len + "_value=" + encodeHtml($.trim($("label[for='" + $field.attr("id") + "']").text()));                                    
+                                        confirmar = encodeHtml($.trim($("label[for='" + $field.attr("id") + "']").text()));
                                     }
                                 } else if ($field.is("fieldset")) {
                                     html += "&field" + len + "_label=" + encodeHtml($field.attr("name"));
@@ -928,9 +920,12 @@ var Neela;
                                             html += ", " + encodeHtml($.trim($("label[for='" + $(this).attr("id") + "']").text()));
                                         }
                                     });
+                                    
+                                    
                                 } else {
                                     html += "&field" + len + "_label=" + encodeHtml($field.attr("name"));
                                     html += "&field" + len + "_value=" + encodeHtml($field.val());
+                                    mensaje = encodeHtml($field.val()); 
                                 }
 
                                 len += 1;
@@ -940,6 +935,7 @@ var Neela;
                 });
 
                 html += "&len=" + len;
+
 
                 if ($(".g-recaptcha").length) {
                     html += "&recaptcha=" + grecaptcha.getResponse();
@@ -960,7 +956,20 @@ var Neela;
 
                     $submit_btn.append("<i class=\"fas fa-spinner fa-spin after\"></i>");
                     $submit_btn.addClass("disabled");
+                    stopSpin();
+                    showSuccess();
+                    $form[0].reset();
+                    $_self.sendingMail = false;
+                //grecaptcha.reset();
 
+                    
+                    //alert($field.hasClass("fromName"));
+                    window.open('https://api.whatsapp.com/send?phone=523122563170&text='+'De%20parte%20de%20'+nombre+'%3A%20 '+confirmar+'('+cuantosIremos+')%20personas.%20'+mensaje, '_blank');
+
+                    //contact&fromname=H%C3%A9ctor%20Arturo%20Aguirre&fromname_label=Name&fromemail=hearagmu%40gmail.com
+                    //&fromemail_label=E-mail&field0_label=Attend%20wedding&field0_value=Si%2C%20los%20acompa%C3%B1aremos.&field2_label=Number%20of%20Guests&field2_value=2&
+                    //field3_label=Meal%20Preferences&field3_value=Carne&field4_label=Message&field4_value=Muchas%20gracias%20por%20invitarnos.&len=5
+                    /*
                     $.ajax({
                         type: "POST",
                         url: "contact.php",
@@ -989,7 +998,8 @@ var Neela;
                             $_self.showError();
                             $_self.sendingMail = false;
                         }
-                    });
+                    });*/
+
 
                 } else {
                     $_self.showError();
